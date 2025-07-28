@@ -14,8 +14,8 @@
         
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: #0a0a0a;
-            color: #f5f5f6d0;
+            background-color: #ffffff;
+            color: #376ef0b1;
             background-image: linear-gradient(to bottom, #0a0a0a, #1a1a1a);
             min-height: 100vh;
         }
@@ -31,7 +31,7 @@
         
         .photo-slot {
             background-color: #000;
-            border: 3px solid rgba(0,0,0,0.3);
+            border: 3px solid rgba(255, 255, 255, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -124,7 +124,7 @@
             border-radius: 12px;
             padding: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            border: 1px solid rgba(0,0,0,0.1);
+            border: 1px solid rgba(27, 87, 240, 0.507);
             position: relative;
             overflow: hidden;
         }
@@ -165,7 +165,7 @@
         
         .btn {
             background-image: linear-gradient(135deg, #333, #222);
-            color: rgba(79, 141, 233, 0.693);
+            color: rgb(0, 3, 7);
             font-weight: 425;
             padding: 10px 20px;
             border-radius: 8px;
@@ -231,7 +231,7 @@
         .AHOF 1ST PHILIPPINE FANCON-text {
             font-family: 'Fact Expanded Extra Bold', Fact Expanded Extra Bold;
             font-weight: 1000;
-            letter-spacing: 5px;
+            letter-spacing: 7px;
             color: #000000;
             text-shadow: 2px 2px 4px rgba(0.07, 0.03, 29);
             text-transform: uppercase;
@@ -240,7 +240,7 @@
         .RENDEZVOUS-text {
             font-family: 'Churchward Freedom LDShadow', monospace;
             font-weight: 700;
-            letter-spacing: 7px;
+            letter-spacing: 10px;
             text-shadow: 
                 2px 2px 4px rgba(248, 151, 25, 0.971),
                 0 0 10px rgba(255, 255, 255, 0.3);
@@ -250,7 +250,7 @@
         .IN MANILA -text {
             font-family: 'Fact Expanded Extra Bold', monospace;
             font-weight: 1000
-            letter-spacing: 5px;
+            letter-spacing: 7px;
             color: #000000;
             text-transform: uppercase;
         }
@@ -264,7 +264,7 @@
         .photostrip-container .RENDEZVOUS-text {
             color: #faa716;
             text-shadow: 
-                1px 1px 2px rgba(0, 0, 0, 0.3),
+                1px 1px 2px rgb(0, 0, 0),
                 0 0 5px rgba(255, 255, 255, 0.2);
         }
         
@@ -339,9 +339,9 @@
             <div>
                 <div class="photostrip-container">
                     <div class="photostrip-header text-center mb-5">
-                        <div class="AHOF 1ST PHILIPPINE FANCON-text text-4xl">AHOF 1ST PHILIPPINE FANCON</div>
-                        <div class="RENDEZVOUS -text text-12xl tracking-wider">RENDEZVOUS</div>
-                        <div class="IN MANILA -text text-4xl">IN MANILA</div>
+                        <div class="AHOF 1ST PHILIPPINE FANCON-text text-2xl">AHOF 1ST PHILIPPINE FANCON</div>
+                        <div class="RENDEZVOUS -text text-5xl tracking-wider">RENDEZVOUS</div>
+                        <div class="IN MANILA -text text-2xl">IN MANILA</div>
                     </div>
                     
                     <!-- AHOF Group Photo -->
@@ -355,8 +355,8 @@
 
                     <div class="photostrip-footer">
                         <p class="text-xs text-black-000">MEMORIES FROM THE CONCERT</p>
-                        <p class="text-[10px] text-black-000 mt-1">© AHOF 1ST PHILIPPINE FANCON</p>
-                        <p class="text-[10px] text-black-000">iveen_space</p>
+                        <p class="text-[8px] text-black-000 mt-1">© AHOF 1ST PHILIPPINE FANCON</p>
+                        <p class="text-[8px] text-black-000">iveen_space</p>
                     </div>
                 </div>
                 
@@ -475,7 +475,7 @@
                 for (let i = 0; i < photoCount; i++) {
                     const slot = document.createElement('div');
                     slot.className = 'photo-slot mb-4';
-                    slot.style.height = '250px';
+                    slot.style.height = '200px';
                     
                     const placeholderContent = document.createElement('div');
                     placeholderContent.className = 'flex flex-col items-center justify-center';
@@ -795,11 +795,11 @@
                     ctx.fillText('MEMORIES FROM THE CONCERT', stripWidth / 2, footerStartY);
                     
                     ctx.fillStyle = '#4c4c2c';
-                    ctx.font = '18px "Montserrat", sans-serif';
+                    ctx.font = '15px "Montserrat", sans-serif';
                     ctx.fillText('AHOF 1ST PHILIPPINE FANCON', stripWidth / 2, footerStartY + 40);
                     
                     ctx.fillStyle = '#6c6c2c';
-                    ctx.font = '16px "Montserrat", sans-serif';
+                    ctx.font = '15px "Montserrat", sans-serif';
                     ctx.fillText('iveen_space', stripWidth / 2, footerStartY + 80);
                     
                     // Create download
