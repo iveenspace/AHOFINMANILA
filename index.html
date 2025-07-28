@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LYKN Photostrip</title>
+    <title>AHOF Photostrip</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
@@ -279,9 +279,9 @@
     <div class="max-w-4xl mx-auto">
         <header class="text-center mb-8">
             <h1 class="mb-2">
-                <div class="lykn-text text-4xl">AHOF 1ST PHILIPPINE FANCON</div>
-                <div class="tour-text text-12xl tracking-wider">RENDEZVOUS</div>
-                <div class="world-tour-text text-4xl mt-1">IN MANILA</div>
+                <div class="AHOF 1ST PHILIPPINE FANCON-text text-2xl">AHOF 1ST PHILIPPINE FANCON</div>
+                <div class="RENDEZVOUS-text text-5xl tracking-wider">RENDEZVOUS</div>
+                <div class="IN MANILA-text text-2xl mt-1">IN MANILA</div>
             </h1>
         </header>
         
@@ -346,7 +346,7 @@
                     
                     <!-- AHOF Group Photo -->
                     <div class="AHOF-group-photo mb-12" style="width: 380px; height: 200px; background: rgba(255, 255, 255, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-                        <img id="AHOFGroupPhoto" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='380' height='200'%3E%3Crect width='380' height='200' fill='%23f0f0f0'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-family='Arial' font-size='16' fill='%23666'%3EAHOF Group Photo%3C/text%3E%3C/svg%3E" alt="LYKN Group" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                        <img id="AHOFGroupPhoto" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='380' height='200'%3E%3Crect width='380' height='200' fill='%23f0f0f0'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-family='Arial' font-size='16' fill='%23666'%3EAHOF Group Photo%3C/text%3E%3C/svg%3E" alt="AHOF Group" style="width: 100%; height: 100%; object-fit: cover; display: block;">
                     </div>
 
                     <div id="photoStripContainer" class="flex flex-col gap-4 mb-12">
@@ -804,7 +804,7 @@
                     
                     // Create download
                     const link = document.createElement('a');
-                    link.download = 'lykn_photostrip.jpg';
+                    link.download = 'AHOF_photostrip.jpg';
                     link.href = photoStripCanvas.toDataURL('image/jpeg', 0.9);
                     link.click();
                     
