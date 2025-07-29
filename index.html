@@ -274,8 +274,6 @@
         <header class="text-center mb-8">
             <h1 class="text-6xl font-bold text-blue-900">AHOF</h1>
         </header>
-            <h1 class="text-6xl font-bold text-gray-800">AHOF</h1>
-        </header>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <!-- Camera Section -->
@@ -647,22 +645,22 @@
                     ctx.fillStyle = '#87CEEB';
                     ctx.fillRect(0, 0, stripWidth, stripHeight);
                     
-                    // Header section - matching the exact layout from image
+                    // Header section - add AHOF logo first
                     ctx.textAlign = 'center';
                     
-                    
-                    // RENDEZVOUS (stylized, smaller, orange)
-                    ctx.fillStyle = '#f97316';
-                    ctx.font = 'bold 36px "Bebas Neue", sans-serif';
-                    ctx.fillText('RENDEZVOUS', stripWidth / 2, 80);
-                    
-                    // IN MANILA (smaller)
-                    ctx.fillStyle = '#1a1a1a';
-                    ctx.font = 'bold 20px "Bebas Neue", sans-serif';
-                    ctx.fillText('IN MANILA', stripWidth / 2, 110);
+                    // Add AHOF logo at the top
+                    const logoElement = document.querySelector('.photostrip-logo img');
+                    if (logoElement && logoElement.complete && logoElement.naturalHeight !== 0) {
+                        const logoWidth = 150;
+                        const logoHeight = (logoElement.naturalHeight / logoElement.naturalWidth) * logoWidth;
+                        const logoX = (stripWidth - logoWidth) / 2;
+                        const logoY = 20;
+                        
+                        ctx.drawImage(logoElement, logoX, logoY, logoWidth, logoHeight);
+                    }
                     
                     // Add the AHOF group photo area
-                    const membersAreaY = 125;
+                    const membersAreaY = 150;
                     const membersAreaHeight = 200;
                     
                     // Try to load and draw the AHOF group photo
