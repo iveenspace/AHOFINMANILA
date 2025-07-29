@@ -616,49 +616,6 @@
                     const membersAreaY = 100;
                     const membersAreaHeight = 200;
                     
-                    // Try to load and draw the AHOF group photo
-                    const AHOFImg = new Image();
-                    AHOFImg.crossOrigin = 'anonymous';
-                    
-                    const drawMembersArea = () => {
-                        // Create a subtle overlay background
-                        ctx.globalAlpha = 0.1;
-                        ctx.fillStyle = '#ffffff';
-                        ctx.fillRect(0, membersAreaY, stripWidth, membersAreaHeight);
-                        ctx.globalAlpha = 1;
-                        
-                        // Try to draw the AHOF group photo if available
-                        const AHOFPhotoElement = document.getElementById('AHOFGroupPhoto');
-                        if (AHOFPhotoElement && AHOFPhotoElement.complete && AHOFPhotoElement.naturalHeight !== 0) {
-                            // Calculate dimensions to fit the photo properly
-                            const imgAspect = AHOFPhotoElement.naturalWidth / AHOFPhotoElement.naturalHeight;
-                            const areaAspect = stripWidth / membersAreaHeight;
-                            
-                            let drawWidth, drawHeight, drawX, drawY;
-                            
-                            if (imgAspect > areaAspect) {
-                                // Image is wider, fit to width
-                                drawWidth = stripWidth;
-                                drawHeight = stripWidth / imgAspect;
-                                drawX = 0;
-                                drawY = membersAreaY + (membersAreaHeight - drawHeight) / 2;
-                            } else {
-                                // Image is taller, fit to height
-                                drawHeight = membersAreaHeight;
-                                drawWidth = membersAreaHeight * imgAspect;
-                                drawX = (stripWidth - drawWidth) / 2;
-                                drawY = membersAreaY;
-                            }
-                            
-                            // Add a subtle overlay to blend with the background
-                            ctx.globalAlpha = 0.9;
-                            ctx.drawImage(AHOFPhotoElement, drawX, drawY, drawWidth, drawHeight);
-                            ctx.globalAlpha = 1;
-                        }
-                    };
-                    
-                    drawMembersArea();
-                    
                     // Photo slots - clean layout matching reference
                     const photoStartY = 330;
                     const photoWidth = 390; // Updated width as requested
