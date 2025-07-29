@@ -276,9 +276,9 @@
     <div class="max-w-4xl mx-auto">
         <header class="text-center mb-8">
             <h1 class="mb-2">
-                <div class="lykn-text text-5xl">AHOF</div>
-                <div class="tour-text text-8xl tracking-wider text-orange-500">RENDEZVOUS</div>
-                <div class="lykn-text text-5xl mt-1">IN MANILA</div>
+                <div class="lykn-text text-2xl">AHOF</div>
+                <div class="tour-text text-4xl tracking-wider text-orange-500">RENDEZVOUS</div>
+                <div class="lykn-text text-2xl mt-1">IN MANILA</div>
             </h1>
         </header>
         
@@ -336,9 +336,9 @@
             <div>
                 <div class="photostrip-container">
                     <div class="photostrip-header text-center mb-5">
-                        <div class="lykn-text text-3xl">AHOF</div>
-                        <div class="tour-text text-4xl tracking-wider text-orange-500">RENDEZVOUS</div>
-                        <div class="lykn-text text-3xl mt-1">IN MANILA</div>
+                        <div class="lykn-text text-xl">AHOF 1ST PHILIPPINE FANCON</div>
+                        <div class="tour-text text-2xl tracking-wider text-orange-500">RENDEZVOUS</div>
+                        <div class="lykn-text text-xl mt-1">IN MANILA</div>
                     </div>
                     
                     <!-- AHOF Group Photo -->
@@ -353,7 +353,7 @@
 
                     <div class="photostrip-footer">
                         <p class="text-xs text-gray-400">MEMORIES FROM THE CONCERT</p>
-                        <p class="text-[10px] text-gray-450 mt-1">© AHOF UNLEASHED TOUR 2025</p>
+                        <p class="text-[10px] text-gray-450 mt-1">© AHOF 1ST PHILIPPINE FANCON</p>
                         <p class="text-[10px] text-gray-450">iveen_space</p>
                     </div>
                 </div>
@@ -655,23 +655,23 @@
                     // Header section - matching the exact layout from image
                     ctx.textAlign = 'center';
                     
-                    // AHOF (top, larger)
-                    ctx.fillStyle = '#2c2c2c';
-                    ctx.font = 'bold 48px "Bebas Neue", sans-serif';
-                    ctx.fillText('AHOF', stripWidth / 2, 60);
+                    // AHOF 1ST PHILIPPINE FANCON (top, smaller)
+                    ctx.fillStyle = '#1a1a1a';
+                    ctx.font = 'bold 20px "Bebas Neue", sans-serif';
+                    ctx.fillText('AHOF 1ST PHILIPPINE FANCON', stripWidth / 2, 40);
                     
-                    // RENDEZVOUS (stylized, larger, orange)
+                    // RENDEZVOUS (stylized, smaller, orange)
                     ctx.fillStyle = '#f97316';
-                    ctx.font = 'bold 72px "Bebas Neue", sans-serif';
-                    ctx.fillText('RENDEZVOUS', stripWidth / 2, 110);
+                    ctx.font = 'bold 36px "Bebas Neue", sans-serif';
+                    ctx.fillText('RENDEZVOUS', stripWidth / 2, 80);
                     
-                    // IN MANILA (same style as AHOF)
-                    ctx.fillStyle = '#2c2c2c';
-                    ctx.font = 'bold 48px "Bebas Neue", sans-serif';
-                    ctx.fillText('IN MANILA', stripWidth / 2, 170);
+                    // IN MANILA (smaller)
+                    ctx.fillStyle = '#1a1a1a';
+                    ctx.font = 'bold 20px "Bebas Neue", sans-serif';
+                    ctx.fillText('IN MANILA', stripWidth / 2, 110);
                     
                     // Add the AHOF group photo area
-                    const membersAreaY = 200;
+                    const membersAreaY = 150;
                     const membersAreaHeight = 250;
                     
                     // Try to load and draw the AHOF group photo
