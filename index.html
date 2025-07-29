@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AHOF Photostrip</title>
+    <title>LYKN Photostrip</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
@@ -14,8 +14,8 @@
         
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: #ffffff;
-            color: #376ef0b1;
+            background-color: #0a0a0a;
+            color: #f3f3f3;
             background-image: linear-gradient(to bottom, #0a0a0a, #1a1a1a);
             min-height: 100vh;
         }
@@ -31,7 +31,7 @@
         
         .photo-slot {
             background-color: #000;
-            border: 3px solid rgba(255, 255, 255, 0.3);
+            border: 3px solid rgba(0,0,0,0.3);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -41,7 +41,7 @@
                 inset 0 0 0 2px rgba(255,255,255,0.1),
                 0 2px 8px rgba(0,0,0,0.3);
             position: relative;
-            margin-bottom: 30px;
+            margin-bottom: 30px; /* Add spacing after each frame */
         }
         
         .photo-slot::before {
@@ -123,717 +123,664 @@
             background: linear-gradient(to bottom, #f0f0f0, #e8e8e8, #d8d8d8, #c8c8c8, #b8b8b8);
             border-radius: 12px;
             padding: 20px;
-            box-shadow: 0 10px 30px rgb(4, 0, 0);
-            border: 1px solid rgba(27, 87, 240, 0.507);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .photostrip-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                radial-gradient(circle at 20% 30%, rgba(255,255,255,0.4) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.3) 0%, transparent 40%),
-                radial-gradient(circle at 40% 70%, rgba(255,255,255,0.2) 0%, transparent 30%),
-                radial-gradient(circle at 90% 80%, rgba(180,180,180,0.2) 0%, transparent 40%);
-            pointer-events: none;
-        }
-        
-        .photostrip-footer {
-            border-top: 1px solid rgba(39, 46, 239, 0.643);
-            padding-top: 20px;
-            margin-top: 10px;
-            text-align: center;
-        }
-        
-        .photostrip-footer p {
-            color: #2c2c2c;
-        }
-        
-        .photostrip-footer p:nth-child(2) {
-            color: #4c4c2c;
-        }
-        
-        .photostrip-footer p:nth-child(3) {
-            color: #6c6c2c;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 1px solid rgba(0,0,0,0.1);
+            color: #333;
+            max-width: 400px;
+            margin: 0 auto;
         }
         
         .btn {
-            background-image: linear-gradient(135deg, #333, #222);
-            color: rgb(0, 3, 7);
-            font-weight: 425;
+            background: linear-gradient(to bottom, #3a3a3a, #222);
+            color: white;
+            border: none;
             padding: 10px 20px;
             border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             border: 1px solid rgba(255,255,255,0.1);
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
         
-        .btn:hover:not(:disabled) {
-            background-image: linear-gradient(135deg, #444, #333);
+        .btn:hover {
+            background: linear-gradient(to bottom, #444, #2a2a2a);
             transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
         }
         
-        .btn:active:not(:disabled) {
-            transform: translateY(0);
-        }
-        
-        .btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
+        .btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
         .btn-primary {
-            background-image: linear-gradient(135deg, #3b82f6, #2563eb);
+            background: linear-gradient(to bottom, #3498db, #2980b9);
         }
         
-        .btn-primary:hover:not(:disabled) {
-            background-image: linear-gradient(135deg, #4f8df9, #3573f0);
+        .btn-primary:hover {
+            background: linear-gradient(to bottom, #3aa3e9, #2c8bc8);
         }
         
-        .btn-secondary {
-            background-image: linear-gradient(135deg, #4b5563, #374151);
+        .btn-success {
+            background: linear-gradient(to bottom, #2ecc71, #27ae60);
         }
         
-        .btn-secondary:hover:not(:disabled) {
-            background-image: linear-gradient(135deg, #5b6675, #475163);
+        .btn-success:hover {
+            background: linear-gradient(to bottom, #40d47e, #2abb67);
         }
         
-        .camera-btn {
-            background-color: rgba(0,0,0,0.6);
-            border: 1px solid rgba(255,255,255,0.2);
-            color: white;
-            width: 40px;
-            height: 30px;
+        .btn-danger {
+            background: linear-gradient(to bottom, #e74c3c, #c0392b);
+        }
+        
+        .btn-danger:hover {
+            background: linear-gradient(to bottom, #f65b4d, #cf4032);
+        }
+        
+        .btn-lg {
+            padding: 12px 24px;
+            font-size: 1.1rem;
+        }
+        
+        .btn-sm {
+            padding: 6px 12px;
+            font-size: 0.9rem;
+        }
+        
+        .btn-circle {
             border-radius: 50%;
+            width: 60px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            padding: 0;
         }
         
-        .camera-btn:hover:not(:disabled) {
-            background-color: rgba(0,0,0,0.8);
-            transform: scale(1.1);
+        .btn-circle-sm {
+            width: 40px;
+            height: 40px;
         }
         
-        .camera-btn:active:not(:disabled) {
-            transform: scale(1);
+        .camera-icon {
+            width: 24px;
+            height: 24px;
         }
         
-        .AHOF 1ST PHILIPPINE FANCON-text {
-            font-family: 'Fact Expanded Extra Bold', Fact Expanded Extra Bold;
-            font-weight: 1000;
-            letter-spacing: 10px;
-            color: #000000;
-            text-shadow: 2px 2px 4px rgba(0.07, 0.03, 29);
-            text-transform: uppercase;
+        .photo-frame {
+            position: relative;
+            padding: 10px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
         }
         
-        .RENDEZVOUS-text {
-            font-family: 'Churchward Freedom LDShadow', monospace;
-            font-weight: 500;
-            letter-spacing: 15px;
-            text-shadow: 
-                2px 2px 4px rgba(248, 151, 25, 0.971),
-                0 0 10px rgba(255, 255, 255, 0.3);
-            text-transform: uppercase;
+        .photo-frame::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 10px;
+            background-color: rgba(0,0,0,0.1);
+            border-radius: 50%;
+            filter: blur(3px);
         }
         
-        .IN MANILA -text {
-            font-family: 'Fact Expanded Extra Bold', monospace;
-            font-weight: 1000
-            letter-spacing: 10px;
-            color: #000000;
-            text-transform: uppercase;
+        .filter-option {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: all 0.2s ease;
         }
         
-        /* Photostrip specific text colors */
-        .photostrip-container .AHOF 1ST PHILIPPINE FANCON-text {
-            color: #000000;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        .filter-option.active {
+            border-color: #3498db;
+            transform: scale(1.05);
         }
         
-        .photostrip-container .RENDEZVOUS-text {
-            color: #faa716;
-            text-shadow: 
-                1px 1px 2px rgb(0, 0, 0),
-                0 0 5px rgba(255, 255, 255, 0.2);
+        .filter-option:hover {
+            transform: scale(1.05);
         }
         
-        
-        .photostrip-container .IN MANILA -text {
-            color: #000000;
+        .filter-preview {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
+        .loading-spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid #3498db;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .shutter-button {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: radial-gradient(circle at center, #e74c3c 0%, #c0392b 70%);
+            border: 4px solid #ecf0f1;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .shutter-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+        }
+        
+        .shutter-button:active {
+            transform: scale(0.95);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+        
+        .shutter-inner {
+            width: 80%;
+            height: 80%;
+            border-radius: 50%;
+            background: radial-gradient(circle at center, #c0392b 0%, #e74c3c 70%);
+            border: 2px solid #ecf0f1;
+        }
+        
+        .photo-counter {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: rgba(0,0,0,0.6);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            z-index: 20;
+        }
+        
+        .photostrip-result {
+            display: none;
+            margin-top: 30px;
+        }
+        
+        .photostrip-result.active {
+            display: block;
+        }
+        
+        .photostrip-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 10px;
+            color: #333;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .photostrip-date {
+            font-family: 'Orbitron', sans-serif;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #555;
+            font-size: 0.9rem;
+        }
+        
+        @keyframes flash {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+        
+        .flash-effect {
+            animation: flash 0.5s ease-out;
+        }
+        
+        @keyframes countdown {
+            0% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+            80% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+        }
+        
+        .countdown-animation {
+            animation: countdown 1s ease-out;
+        }
+        
+        .filter-normal { filter: none; }
+        .filter-grayscale { filter: grayscale(100%); }
+        .filter-sepia { filter: sepia(100%); }
+        .filter-vintage { filter: sepia(30%) saturate(140%) hue-rotate(-10deg); }
+        .filter-cool { filter: hue-rotate(180deg); }
+        .filter-warm { filter: sepia(30%) saturate(140%) hue-rotate(20deg); }
     </style>
 </head>
 <body class="p-4">
-    <div class="max-w-2xl mx-auto">
-        <header class="text-center mb-8">
-            <h1 class="mb-2">
-                <div class="AHOF 1ST PHILIPPINE FANCON-text text-1xl">AHOF 1ST PHILIPPINE FANCON</div>
-                <div class="RENDEZVOUS-text text-2xl tracking-wider">RENDEZVOUS</div>
-                <div class="IN MANILA-text text-1xl mt-1">IN MANILA</div>
-            </h1>
-        </header>
+    <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold mb-2 font-['Bebas_Neue']">LYKN PHOTOSTRIP</h1>
+            <p class="text-gray-400">Capture your moments in a classic photostrip style</p>
+        </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Camera Section -->
-            <div>
-                <div class="camera-container aspect-video mb-5 relative">
-                    <video id="video" class="w-full h-full object-cover" autoplay playsinline></video>
-                    <div id="cameraError" class="error-message absolute inset-0 flex items-center justify-center hidden">
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto mb-3 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                            </svg>
-                            <p class="text-lg font-medium">Camera access required</p>
-                            <p class="text-sm text-gray-400 mt-2">Please allow camera access in your browser settings</p>
-                        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="md:col-span-2">
+                <div class="camera-container h-[400px] md:h-[500px] relative">
+                    <video id="camera" class="w-full h-full object-cover" autoplay playsinline></video>
+                    <div class="flash"></div>
+                    <div class="countdown">3</div>
+                    <div class="photo-counter">
+                        <span id="photoCount">0</span>/4 Photos
                     </div>
                     <div class="camera-controls">
-                        <button id="switchCameraBtn" class="camera-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                        <button id="flipCameraBtn" class="btn btn-sm mr-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
                             </svg>
                         </button>
                     </div>
-                    <div class="countdown" id="countdown">3</div>
-                    <div class="flash" id="flash"></div>
                 </div>
                 
-                <div class="flex gap-4 justify-center">
-                    <button id="startBtn" class="btn btn-primary px-6 py-3">
-                        Start Photobooth
-                    </button>
-                    <button id="resetBtn" class="btn btn-secondary px-6 py-3" disabled>
-                        Reset
-                    </button>
+                <div class="mt-6 flex justify-center">
+                    <div class="shutter-button" id="captureBtn">
+                        <div class="shutter-inner"></div>
+                    </div>
                 </div>
                 
-                <!-- Between Photos Controls (initially hidden) -->
-                <div id="betweenPhotosControls" class="between-photos-controls mt-4 hidden">
-                    <button id="switchCameraBetweenBtn" class="btn btn-secondary flex items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                        </svg>
-                        Switch Camera
-                    </button>
-                    <button id="continueBtn" class="btn btn-primary">
-                        Continue
-                    </button>
+                <div class="mt-6">
+                    <h3 class="text-xl font-semibold mb-3">Filters</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <div class="filter-option active" data-filter="normal">
+                            <div class="filter-preview filter-normal bg-gradient-to-br from-blue-500 to-purple-600"></div>
+                        </div>
+                        <div class="filter-option" data-filter="grayscale">
+                            <div class="filter-preview filter-grayscale bg-gradient-to-br from-blue-500 to-purple-600"></div>
+                        </div>
+                        <div class="filter-option" data-filter="sepia">
+                            <div class="filter-preview filter-sepia bg-gradient-to-br from-blue-500 to-purple-600"></div>
+                        </div>
+                        <div class="filter-option" data-filter="vintage">
+                            <div class="filter-preview filter-vintage bg-gradient-to-br from-blue-500 to-purple-600"></div>
+                        </div>
+                        <div class="filter-option" data-filter="cool">
+                            <div class="filter-preview filter-cool bg-gradient-to-br from-blue-500 to-purple-600"></div>
+                        </div>
+                        <div class="filter-option" data-filter="warm">
+                            <div class="filter-preview filter-warm bg-gradient-to-br from-blue-500 to-purple-600"></div>
+                        </div>
+                    </div>
                 </div>
-                
-                <div id="statusMessage" class="mt-4 text-center text-sm text-gray-400"></div>
             </div>
             
-            <!-- Photostrip Section -->
-            <div>
+            <div class="md:col-span-1">
                 <div class="photostrip-container">
-                    <div class="photostrip-header text-center mb-5">
-                        <div class="AHOF 1ST PHILIPPINE FANCON-text text-2xl">AHOF 1ST PHILIPPINE FANCON</div>
-                        <div class="RENDEZVOUS -text text-5xl tracking-wider">RENDEZVOUS</div>
-                        <div class="IN MANILA -text text-2xl">IN MANILA</div>
+                    <div class="photostrip-header">
+                        <h2 class="photostrip-title">PHOTOSTRIP</h2>
+                        <div class="photostrip-date" id="photoDate">00/00/0000</div>
                     </div>
                     
-                    <!-- AHOF Group Photo -->
-                    <div class="AHOF-group-photo mb-12" style="width: 425px; height: 200px; background: rgba(36, 67, 243, 0.62); border-radius: 8px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-                        <img id="AHOFGroupPhoto" ./AHOF-group.jpg" alt="AHOF Group" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                    <div class="photo-slot h-[150px]" id="photo1">
+                        <div class="text-center text-gray-500">Photo 1</div>
                     </div>
-
-                    <div id="photoStripContainer" class="flex flex-col gap-4 mb-12">
-                        <!-- Photo slots will be generated here -->
+                    
+                    <div class="photo-slot h-[150px]" id="photo2">
+                        <div class="text-center text-gray-500">Photo 2</div>
                     </div>
-
-                    <div class="photostrip-footer">
-                        <p class="text-xs text-black-000">MEMORIES FROM THE CONCERT</p>
-                        <p class="text-[8px] text-black-000 mt-1">© AHOF 1ST PHILIPPINE FANCON</p>
-                        <p class="text-[8px] text-black-000">iveen_space</p>
+                    
+                    <div class="photo-slot h-[150px]" id="photo3">
+                        <div class="text-center text-gray-500">Photo 3</div>
                     </div>
-                </div>
-                
-                <div class="mt-5 text-center">
-                    <button id="downloadBtn" class="btn btn-primary px-6 py-3" disabled>
-                        Download Photostrip
-                    </button>
+                    
+                    <div class="photo-slot h-[150px]" id="photo4">
+                        <div class="text-center text-gray-500">Photo 4</div>
+                    </div>
+                    
+                    <div class="mt-4 flex justify-between">
+                        <button id="resetBtn" class="btn btn-danger" disabled>Reset</button>
+                        <button id="downloadBtn" class="btn btn-success" disabled>Download</button>
+                    </div>
                 </div>
             </div>
         </div>
+        
+        <div id="errorMessage" class="error-message mt-6 hidden">
+            <h3 class="text-xl font-bold text-red-500 mb-2">Camera Access Error</h3>
+            <p>Unable to access your camera. Please make sure you've granted permission and that your camera is working properly.</p>
+        </div>
     </div>
     
-    <canvas id="canvas" class="hidden"></canvas>
-    <canvas id="photoStripCanvas" class="hidden"></canvas>
-    
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // DOM elements
-            const video = document.getElementById('video');
-            const canvas = document.getElementById('canvas');
-            const photoStripCanvas = document.getElementById('photoStripCanvas');
-            const photoStripContainer = document.getElementById('photoStripContainer');
-            const startBtn = document.getElementById('startBtn');
+        document.addEventListener('DOMContentLoaded', function() {
+            // DOM Elements
+            const video = document.getElementById('camera');
+            const captureBtn = document.getElementById('captureBtn');
+            const flipCameraBtn = document.getElementById('flipCameraBtn');
             const resetBtn = document.getElementById('resetBtn');
             const downloadBtn = document.getElementById('downloadBtn');
-            const countdown = document.getElementById('countdown');
-            const flash = document.getElementById('flash');
-            const cameraError = document.getElementById('cameraError');
-            const statusMessage = document.getElementById('statusMessage');
-            const switchCameraBtn = document.getElementById('switchCameraBtn');
-            const betweenPhotosControls = document.getElementById('betweenPhotosControls');
-            const switchCameraBetweenBtn = document.getElementById('switchCameraBetweenBtn');
-            const continueBtn = document.getElementById('continueBtn');
+            const photoCountElement = document.getElementById('photoCount');
+            const photoDateElement = document.getElementById('photoDate');
+            const errorMessage = document.getElementById('errorMessage');
+            const flash = document.querySelector('.flash');
+            const countdown = document.querySelector('.countdown');
+            const filterOptions = document.querySelectorAll('.filter-option');
             
             // Variables
             let stream = null;
-            let photosTaken = 0;
-            let photoSlots = [];
-            let capturedPhotos = [];
-            let isCapturing = false;
-            let isPaused = false;
-            const photoCount = 3;
-            let currentFacingMode = 'user';
+            let facingMode = 'user'; // front camera by default
+            let photoCount = 0;
+            let currentFilter = 'normal';
+            let photosTaken = [];
+            let countdownInterval;
+            
+            // Set current date
+            const now = new Date();
+            photoDateElement.textContent = now.toLocaleDateString();
             
             // Initialize camera
-            async function initCamera(facingMode = 'user') {
-                if (stream) {
-                    stream.getTracks().forEach(track => track.stop());
-                }
-                
+            async function initCamera() {
                 try {
-                    statusMessage.textContent = "Requesting camera access...";
-                    currentFacingMode = facingMode;
+                    if (stream) {
+                        stream.getTracks().forEach(track => track.stop());
+                    }
                     
-                    stream = await navigator.mediaDevices.getUserMedia({ 
-                        video: { 
+                    stream = await navigator.mediaDevices.getUserMedia({
+                        video: {
                             facingMode: facingMode,
                             width: { ideal: 1280 },
                             height: { ideal: 720 }
-                        }, 
-                        audio: false 
+                        },
+                        audio: false
                     });
                     
                     video.srcObject = stream;
-                    startBtn.disabled = false;
-                    statusMessage.textContent = `Camera ready (${facingMode === 'user' ? 'front' : 'back'})! Click 'Start Photobooth' to begin.`;
-                    cameraError.classList.add('hidden');
-                    switchCameraBtn.disabled = false;
-                    
+                    errorMessage.classList.add('hidden');
                 } catch (err) {
-                    console.error('Camera error:', err);
-                    cameraError.classList.remove('hidden');
-                    statusMessage.textContent = `Error accessing ${facingMode === 'user' ? 'front' : 'back'} camera.`;
-                    
-                    if (facingMode === 'user') {
-                        statusMessage.textContent = "Front camera not available. Trying back camera...";
+                    console.error('Error accessing camera:', err);
+                    errorMessage.classList.remove('hidden');
+                }
+            }
+            
+            // Initialize camera on page load
+            initCamera();
+            
+            // Flip camera
+            flipCameraBtn.addEventListener('click', function() {
+                facingMode = facingMode === 'user' ? 'environment' : 'user';
+                initCamera();
+            });
+            
+            // Capture photo
+            captureBtn.addEventListener('click', function() {
+                if (photoCount >= 4) return;
+                
+                // Disable button during countdown
+                captureBtn.disabled = true;
+                
+                // Start countdown
+                let count = 3;
+                countdown.textContent = count;
+                countdown.classList.add('active');
+                
+                countdownInterval = setInterval(() => {
+                    count--;
+                    if (count > 0) {
+                        countdown.textContent = count;
+                        countdown.classList.add('countdown-animation');
                         setTimeout(() => {
-                            initCamera('environment');
-                        }, 1000);
-                    } else if (facingMode === 'environment') {
-                        statusMessage.textContent = "Back camera not available. Trying front camera...";
-                        setTimeout(() => {
-                            initCamera('user');
-                        }, 1000);
+                            countdown.classList.remove('countdown-animation');
+                        }, 900);
                     } else {
-                        startBtn.disabled = true;
-                        switchCameraBtn.disabled = true;
+                        clearInterval(countdownInterval);
+                        countdown.classList.remove('active');
+                        takePhoto();
                     }
-                }
-            }
+                }, 1000);
+            });
             
-            // Switch camera
-            async function switchCamera() {
-                const newFacingMode = currentFacingMode === 'user' ? 'environment' : 'user';
-                switchCameraBtn.disabled = true;
-                switchCameraBetweenBtn.disabled = true;
-                statusMessage.textContent = `Switching to ${newFacingMode === 'user' ? 'front' : 'back'} camera...`;
-                
-                try {
-                    await initCamera(newFacingMode);
-                    switchCameraBetweenBtn.disabled = false;
-                } catch (err) {
-                    console.error('Error switching camera:', err);
-                    statusMessage.textContent = `Failed to switch camera. Using ${currentFacingMode === 'user' ? 'front' : 'back'} camera.`;
-                    switchCameraBtn.disabled = false;
-                    switchCameraBetweenBtn.disabled = false;
-                }
-            }
-            
-            // Create photo slots
-            function createPhotoSlots() {
-                photoStripContainer.innerHTML = '';
-                photoSlots = [];
-                capturedPhotos = [];
-                
-                for (let i = 0; i < photoCount; i++) {
-                    const slot = document.createElement('div');
-                    slot.className = 'photo-slot mb-4';
-                    slot.style.height = '200px';
-                    
-                    const placeholderContent = document.createElement('div');
-                    placeholderContent.className = 'flex flex-col items-center justify-center';
-                    placeholderContent.innerHTML = `
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mb-3 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
-                        </svg>
-                        <span class="text-gray-500 font-medium">Photo ${i + 1}</span>
-                    `;
-                    slot.appendChild(placeholderContent);
-                    
-                    photoStripContainer.appendChild(slot);
-                    photoSlots.push(slot);
-                }
-            }
-            
-            // Take photo
+            // Take photo function
             function takePhoto() {
-                return new Promise((resolve, reject) => {
-                    try {
-                        flash.style.opacity = '0.8';
-                        setTimeout(() => {
-                            flash.style.opacity = '0';
-                        }, 200);
-                        
-                        canvas.width = video.videoWidth || 425;
-                        canvas.height = video.videoHeight || 200;
-                        
-                        const ctx = canvas.getContext('2d');
-                        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-                        
-                        const imgData = canvas.toDataURL('image/jpeg');
-                        
-                        capturedPhotos.push({
-                            data: imgData,
-                            width: canvas.width,
-                            height: canvas.height
-                        });
-                        
-                        const aspectRatio = canvas.width / canvas.height;
-                        photoSlots[photosTaken].style.aspectRatio = aspectRatio;
-                        
-                        const img = document.createElement('img');
-                        img.src = imgData;
-                        photoSlots[photosTaken].innerHTML = '';
-                        photoSlots[photosTaken].appendChild(img);
-                        
-                        photosTaken++;
-                        resolve();
-                    } catch (err) {
-                        console.error('Error taking photo:', err);
-                        statusMessage.textContent = "Error capturing photo. Please try again.";
-                        reject(err);
-                    }
-                });
-            }
-            
-            // Start countdown
-            function startCountdown(seconds) {
-                return new Promise((resolve) => {
-                    countdown.textContent = seconds;
-                    countdown.classList.add('active');
-                    
-                    const interval = setInterval(() => {
-                        seconds--;
-                        countdown.textContent = seconds;
-                        
-                        if (seconds <= 0) {
-                            clearInterval(interval);
-                            countdown.classList.remove('active');
-                            resolve();
-                        }
-                    }, 1000);
-                });
-            }
-            
-            // Show between photos controls
-            function showBetweenPhotosControls() {
-                return new Promise((resolve) => {
-                    betweenPhotosControls.classList.remove('hidden');
-                    startBtn.classList.add('hidden');
-                    resetBtn.classList.add('hidden');
-                    isPaused = true;
-                    
-                    const onSwitchCamera = async () => {
-                        await switchCamera();
-                    };
-                    
-                    const onContinue = () => {
-                        betweenPhotosControls.classList.add('hidden');
-                        startBtn.classList.remove('hidden');
-                        resetBtn.classList.remove('hidden');
-                        isPaused = false;
-                        
-                        switchCameraBetweenBtn.removeEventListener('click', onSwitchCamera);
-                        continueBtn.removeEventListener('click', onContinue);
-                        
-                        resolve();
-                    };
-                    
-                    switchCameraBetweenBtn.addEventListener('click', onSwitchCamera);
-                    continueBtn.addEventListener('click', onContinue);
-                    
-                    statusMessage.textContent = "Ready for next photo. Switch camera or continue.";
-                });
-            }
-            
-            // Start photobooth
-            async function startPhotobooth() {
-                if (isCapturing) return;
+                // Create canvas to capture frame from video
+                const canvas = document.createElement('canvas');
+                const context = canvas.getContext('2d');
                 
-                try {
-                    isCapturing = true;
-                    startBtn.disabled = true;
-                    switchCameraBtn.disabled = true;
-                    statusMessage.textContent = "Starting photobooth...";
+                // Set canvas dimensions to match video
+                canvas.width = video.videoWidth;
+                canvas.height = video.videoHeight;
+                
+                // Draw video frame to canvas
+                context.drawImage(video, 0, 0, canvas.width, canvas.height);
+                
+                // Apply selected filter
+                if (currentFilter !== 'normal') {
+                    const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
                     
-                    createPhotoSlots();
-                    photosTaken = 0;
-                    
-                    for (let i = 0; i < photoCount; i++) {
-                        statusMessage.textContent = `Taking photo ${i+1} of ${photoCount}...`;
-                        await startCountdown(3);
-                        await takePhoto();
-                        
-                        if (i < photoCount - 1) {
-                            await showBetweenPhotosControls();
-                        }
+                    // Apply filter effects (simplified version)
+                    if (currentFilter === 'grayscale') {
+                        applyGrayscale(imageData.data);
+                    } else if (currentFilter === 'sepia') {
+                        applySepia(imageData.data);
+                    } else if (currentFilter === 'vintage') {
+                        applyVintage(imageData.data);
+                    } else if (currentFilter === 'cool') {
+                        applyCool(imageData.data);
+                    } else if (currentFilter === 'warm') {
+                        applyWarm(imageData.data);
                     }
                     
-                    resetBtn.disabled = false;
-                    downloadBtn.disabled = false;
-                    switchCameraBtn.disabled = false;
-                    statusMessage.textContent = "All photos taken! You can download your photostrip.";
-                } catch (err) {
-                    console.error('Photobooth error:', err);
-                    statusMessage.textContent = "An error occurred. Please try again.";
-                    switchCameraBtn.disabled = false;
-                } finally {
-                    isCapturing = false;
+                    context.putImageData(imageData, 0, 0);
                 }
+                
+                // Convert canvas to data URL
+                const photoDataUrl = canvas.toDataURL('image/jpeg');
+                
+                // Store photo data
+                photosTaken.push(photoDataUrl);
+                
+                // Flash effect
+                flash.classList.add('flash-effect');
+                setTimeout(() => {
+                    flash.classList.remove('flash-effect');
+                }, 500);
+                
+                // Update photo count
+                photoCount++;
+                photoCountElement.textContent = photoCount;
+                
+                // Display photo in the appropriate slot
+                const photoSlot = document.getElementById(`photo${photoCount}`);
+                photoSlot.innerHTML = '';
+                const img = document.createElement('img');
+                img.src = photoDataUrl;
+                img.classList.add(`filter-${currentFilter}`);
+                photoSlot.appendChild(img);
+                
+                // Enable buttons if all photos are taken
+                if (photoCount === 4) {
+                    downloadBtn.disabled = false;
+                }
+                
+                // Enable reset button after first photo
+                resetBtn.disabled = false;
+                
+                // Re-enable capture button
+                captureBtn.disabled = false;
             }
             
-            // Reset photobooth
-            function resetPhotobooth() {
-                photosTaken = 0;
-                capturedPhotos = [];
-                createPhotoSlots();
+            // Reset function
+            resetBtn.addEventListener('click', function() {
+                // Clear photo slots
+                for (let i = 1; i <= 4; i++) {
+                    const photoSlot = document.getElementById(`photo${i}`);
+                    photoSlot.innerHTML = `<div class="text-center text-gray-500">Photo ${i}</div>`;
+                }
                 
-                startBtn.disabled = false;
-                resetBtn.disabled = true;
+                // Reset variables
+                photoCount = 0;
+                photoCountElement.textContent = photoCount;
+                photosTaken = [];
+                
+                // Disable buttons
                 downloadBtn.disabled = true;
-                statusMessage.textContent = "Reset complete. Ready to take new photos.";
-            }
+                resetBtn.disabled = true;
+            });
             
             // Download photostrip
-            async function downloadPhotostrip() {
-                if (capturedPhotos.length === 0) {
-                    statusMessage.textContent = "No photos to download.";
-                    return;
-                }
+            downloadBtn.addEventListener('click', function() {
+                // Create a canvas for the photostrip
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
                 
-                try {
-                    statusMessage.textContent = "Generating photostrip...";
-                    
-                    const stripWidth = 450;
-                    const stripHeight = 1375;
-                    
-                    photoStripCanvas.width = stripWidth;
-                    photoStripCanvas.height = stripHeight;
-                    
-                    const ctx = photoStripCanvas.getContext('2d');
-                    
-                    // Create the exact cloudy/smoky background from the image
-                    const bgGradient = ctx.createLinearGradient(0, 0, 0, stripHeight);
-                    bgGradient.addColorStop(0, '#f0f0f0');
-                    bgGradient.addColorStop(0.2, '#e8e8e8');
-                    bgGradient.addColorStop(0.5, '#d8d8d8');
-                    bgGradient.addColorStop(0.8, '#c8c8c8');
-                    bgGradient.addColorStop(1, '#b8b8b8');
-                    ctx.fillStyle = bgGradient;
-                    ctx.fillRect(0, 0, stripWidth, stripHeight);
-                    
-                    // Add realistic cloud texture
-                    ctx.globalAlpha = 0.4;
-                    for (let i = 0; i < 30; i++) {
-                        const x = Math.random() * stripWidth;
-                        const y = Math.random() * stripHeight;
-                        const radius = Math.random() * 80 + 30;
-                        
-                        const cloudGradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
-                        cloudGradient.addColorStop(0, 'rgba(255, 255, 255, 0.9)');
-                        cloudGradient.addColorStop(0.5, 'rgba(255, 255, 255, 0.5)');
-                        cloudGradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
-                        ctx.fillStyle = cloudGradient;
-                        ctx.beginPath();
-                        ctx.arc(x, y, radius, 0, Math.PI * 2);
-                        ctx.fill();
-                    }
-                    
-                    // Add some darker cloud shadows
-                    ctx.globalAlpha = 0.2;
-                    for (let i = 0; i < 15; i++) {
-                        const x = Math.random() * stripWidth;
-                        const y = Math.random() * stripHeight;
-                        const radius = Math.random() * 60 + 20;
-                        
-                        const shadowGradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
-                        shadowGradient.addColorStop(0, 'rgba(180, 180, 180, 0.6)');
-                        shadowGradient.addColorStop(1, 'rgba(180, 180, 180, 0)');
-                        ctx.fillStyle = shadowGradient;
-                        ctx.beginPath();
-                        ctx.arc(x, y, radius, 0, Math.PI * 2);
-                        ctx.fill();
-                    }
-                    ctx.globalAlpha = 1;
-                    
-                    // Header section - matching the exact layout from image
-                    ctx.textAlign = 'center';
-                    
-                    // AHOF 1ST PHILIPPINE FANCON (top, larger)
-                    ctx.fillStyle = '#000000';
-                    ctx.font = 'bold 48px "Fact Expanded Extra Bold", sans-serif';
-                    ctx.fillText('AHOF 1ST PHILIPPINE FANCON', stripWidth / 2, 60);
-                    
-                    // RENDEZVOUS (stylized, larger)
-                    ctx.fillStyle = '#FFA500';
-                    ctx.font = 'bold 120px "Churchward Freedom LDShadow", sans-serif';
-                    ctx.fillText('RENDEZVOUS', stripWidth / 2, 110);
-                    
-                    // IN MANILA (Black color like in image)
-                    ctx.fillStyle = '#000000';
-                    ctx.font = 'bold 48px "Fact Expanded Extra Bold", sans-serif';
-                    ctx.fillText('IN MANILA', stripWidth / 2, 150);
-                    
-                    // Add the AHOF group photo area
-                    const membersAreaY = 200;
-                    const membersAreaHeight = 250;
-                    
-                    // Create a subtle overlay background
-                    ctx.globalAlpha = 0.1;
-                    ctx.fillStyle = '#ffffff';
-                    ctx.fillRect(0, membersAreaY, stripWidth, membersAreaHeight);
-                    ctx.globalAlpha = 1;
-                    
-                    // Photo slots - clean layout matching reference
-                    const photoStartY = 480;
-                    const photoWidth = 390;
-                    const photoHeight = 220;
-                    const photoSpacing = 35;
-                    const photoX = 30;
-                    
-                    // Process photos synchronously to ensure proper rendering
-                    const processPhotos = async () => {
-                        for (let i = 0; i < 3; i++) {
-                            const yPos = photoStartY + (i * (photoHeight + photoSpacing));
+                // Set dimensions for the photostrip
+                const width = 800;
+                const height = 1200;
+                canvas.width = width;
+                canvas.height = height;
+                
+                // Fill background
+                ctx.fillStyle = '#f0f0f0';
+                ctx.fillRect(0, 0, width, height);
+                
+                // Add title
+                ctx.fillStyle = '#333';
+                ctx.font = 'bold 60px "Bebas Neue", sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText('PHOTOSTRIP', width / 2, 80);
+                
+                // Add date
+                ctx.font = '24px "Orbitron", sans-serif';
+                ctx.fillText(photoDateElement.textContent, width / 2, 120);
+                
+                // Draw divider
+                ctx.strokeStyle = '#999';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.moveTo(100, 140);
+                ctx.lineTo(width - 100, 140);
+                ctx.stroke();
+                
+                // Load and draw each photo
+                const loadImages = photosTaken.map((dataUrl, index) => {
+                    return new Promise((resolve) => {
+                        const img = new Image();
+                        img.onload = () => {
+                            // Calculate position for each photo
+                            const photoHeight = 220;
+                            const photoWidth = width - 100;
+                            const y = 160 + index * (photoHeight + 30);
                             
-                            // Draw fixed rectangle frame background
-                            ctx.fillStyle = '#000000';
-                            ctx.fillRect(photoX, yPos, photoWidth, photoHeight);
+                            // Draw photo frame
+                            ctx.fillStyle = 'white';
+                            ctx.fillRect(50 - 10, y - 10, photoWidth + 20, photoHeight + 20);
+                            ctx.strokeStyle = '#ddd';
+                            ctx.lineWidth = 1;
+                            ctx.strokeRect(50 - 10, y - 10, photoWidth + 20, photoHeight + 20);
                             
-                            // Add frame border
-                            ctx.strokeStyle = '#333333';
-                            ctx.lineWidth = 2;
-                            ctx.strokeRect(photoX, yPos, photoWidth, photoHeight);
+                            // Draw photo
+                            ctx.drawImage(img, 50, y, photoWidth, photoHeight);
                             
-                            if (i < capturedPhotos.length) {
-                                // Create and load image
-                                const img = new Image();
-                                await new Promise((resolve) => {
-                                    img.onload = () => {
-                                        // Calculate how to crop the image to fit the fixed rectangle
-                                        const imgAspect = capturedPhotos[i].width / capturedPhotos[i].height;
-                                        const frameAspect = photoWidth / photoHeight;
-                                        
-                                        let sourceX = 0, sourceY = 0, sourceWidth = capturedPhotos[i].width, sourceHeight = capturedPhotos[i].height;
-                                        
-                                        if (imgAspect > frameAspect) {
-                                            // Image is wider than frame - crop sides
-                                            sourceWidth = capturedPhotos[i].height * frameAspect;
-                                            sourceX = (capturedPhotos[i].width - sourceWidth) / 2;
-                                        } else {
-                                            // Image is taller than frame - crop top/bottom
-                                            sourceHeight = capturedPhotos[i].width / frameAspect;
-                                            sourceY = (capturedPhotos[i].height - sourceHeight) / 2;
-                                        }
-                                        
-                                        // Draw the cropped image to fill the exact rectangle
-                                        ctx.drawImage(
-                                            img,
-                                            sourceX, sourceY, sourceWidth, sourceHeight,
-                                            photoX, yPos, photoWidth, photoHeight
-                                        );
-                                        
-                                        resolve();
-                                    };
-                                    img.src = capturedPhotos[i].data;
-                                });
-                            } else {
-                                // Placeholder text
-                                ctx.fillStyle = '#666666';
-                                ctx.font = '16px "Montserrat", sans-serif';
-                                ctx.textAlign = 'center';
-                                ctx.fillText(`Photo ${i + 1}`, stripWidth / 2, yPos + photoHeight / 2);
-                            }
-                        }
-                    };
+                            resolve();
+                        };
+                        img.src = dataUrl;
+                    });
+                });
+                
+                // When all images are loaded and drawn
+                Promise.all(loadImages).then(() => {
+                    // Convert canvas to data URL
+                    const photoStripDataUrl = canvas.toDataURL('image/jpeg');
                     
-                    await processPhotos();
-                    
-                    // Footer section - matching the exact layout
-                    const footerStartY = stripHeight - 100;
-                    
-                    ctx.fillStyle = '#2c2c2c';
-                    ctx.font = 'bold 20px "Montserrat", sans-serif';
-                    ctx.fillText('MEMORIES FROM THE CONCERT', stripWidth / 2, footerStartY);
-                    
-                    ctx.fillStyle = '#4c4c2c';
-                    ctx.font = '15px "Montserrat", sans-serif';
-                    ctx.fillText('AHOF 1ST PHILIPPINE FANCON', stripWidth / 2, footerStartY + 40);
-                    
-                    ctx.fillStyle = '#6c6c2c';
-                    ctx.font = '15px "Montserrat", sans-serif';
-                    ctx.fillText('iveen_space', stripWidth / 2, footerStartY + 80);
-                    
-                    // Create download
+                    // Create download link
                     const link = document.createElement('a');
-                    link.download = 'AHOF_photostrip.jpg';
-                    link.href = photoStripCanvas.toDataURL('image/jpeg', 0.9);
+                    link.download = 'LYKN_Photostrip_' + new Date().getTime() + '.jpg';
+                    link.href = photoStripDataUrl;
                     link.click();
+                });
+            });
+            
+            // Filter selection
+            filterOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove active class from all options
+                    filterOptions.forEach(opt => opt.classList.remove('active'));
                     
-                    statusMessage.textContent = "Photostrip downloaded!";
+                    // Add active class to selected option
+                    this.classList.add('active');
                     
-                } catch (err) {
-                    console.error('Download error:', err);
-                    statusMessage.textContent = "Error generating photostrip.";
+                    // Set current filter
+                    currentFilter = this.dataset.filter;
+                    
+                    // Apply filter to video preview
+                    video.className = '';
+                    video.classList.add(`filter-${currentFilter}`);
+                });
+            });
+            
+            // Filter functions
+            function applyGrayscale(data) {
+                for (let i = 0; i < data.length; i += 4) {
+                    const avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
+                    data[i] = avg;     // R
+                    data[i + 1] = avg; // G
+                    data[i + 2] = avg; // B
                 }
             }
             
-            // Event listeners
-            startBtn.addEventListener('click', startPhotobooth);
-            resetBtn.addEventListener('click', resetPhotobooth);
-            downloadBtn.addEventListener('click', downloadPhotostrip);
-            switchCameraBtn.addEventListener('click', switchCamera);
-            
-            // Initialize
-            createPhotoSlots();
-            
-            if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-                cameraError.classList.remove('hidden');
-                statusMessage.textContent = "Camera not supported in this browser.";
-                startBtn.disabled = true;
-                switchCameraBtn.disabled = true;
-            } else {
-                initCamera('user');
+            function applySepia(data) {
+                for (let i = 0; i < data.length; i += 4) {
+                    const r = data[i];
+                    const g = data[i + 1];
+                    const b = data[i + 2];
+                    
+                    data[i] = Math.min(255, (r * 0.393) + (g * 0.769) + (b * 0.189));
+                    data[i + 1] = Math.min(255, (r * 0.349) + (g * 0.686) + (b * 0.168));
+                    data[i + 2] = Math.min(255, (r * 0.272) + (g * 0.534) + (b * 0.131));
+                }
             }
+            
+            function applyVintage(data) {
+                for (let i = 0; i < data.length; i += 4) {
+                    const r = data[i];
+                    const g = data[i + 1];
+                    const b = data[i + 2];
+                    
+                    data[i] = Math.min(255, (r * 0.9) + (g * 0.2) + (b * 0.1) + 20);
+                    data[i + 1] = Math.min(255, (r * 0.2) + (g * 0.9) + (b * 0.1) + 10);
+                    data[i + 2] = Math.min(255, (r * 0.1) + (g * 0.1) + (b * 0.9));
+                }
+            }
+            
+            function applyCool(data) {
+                for (let i = 0; i < data.length; i += 4) {
+                    data[i + 2] = Math.min(255, data[i + 2] + 30); // Boost blue
+                    data[i] = Math.max(0, data[i] - 10);           // Reduce red
+                }
+            }
+            
+            function applyWarm(data) {
+                for (let i = 0; i < data.length; i += 4) {
+                    data[i] = Math.min(255, data[i] + 30);         // Boost red
+                    data[i + 2] = Math.max(0, data[i + 2] - 10);   // Reduce blue
+                }
+            }
+            
+            // Clean up on page unload
+            window.addEventListener('beforeunload', () => {
+                if (stream) {
+                    stream.getTracks().forEach(track => track.stop());
+                }
+            });
         });
     </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'966ab96dd370bc4f',t:'MTc1Mzc3MjI3MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
