@@ -272,11 +272,9 @@
 <body class="p-4">
     <div class="max-w-4xl mx-auto">
         <header class="text-center mb-8">
-            <h1 class="mb-2">
-                <div class="lykn-text text-2xl">AHOF 1ST PHILIPPINE FANCON</div>
-                <div class="tour-text text-4xl tracking-wider text-orange-500">RENDEZVOUS</div>
-                <div class="lykn-text text-2xl mt-1">IN MANILA</div>
-            </h1>
+            <h1 class="text-6xl font-bold text-blue-900">AHOF</h1>
+        </header>
+            <h1 class="text-6xl font-bold text-gray-800">AHOF</h1>
         </header>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -332,10 +330,10 @@
             <!-- Photostrip Section -->
             <div>
                 <div class="photostrip-container">
+                    <div class="photostrip-logo text-center mb-5">
+                        <img src="./ahof-logo.jpg" alt="AHOF Logo" class="mx-auto" style="max-width: 200px; height: auto;">
+                    </div>
                     <div class="photostrip-header text-center mb-5">
-                        <div class="lykn-text text-xl">AHOF 1ST PHILIPPINE FANCON</div>
-                        <div class="tour-text text-2xl tracking-wider text-orange-500">RENDEZVOUS</div>
-                        <div class="lykn-text text-xl mt-1">IN MANILA</div>
                     </div>
                     
                     <!-- AHOF Group Photo -->
@@ -652,10 +650,6 @@
                     // Header section - matching the exact layout from image
                     ctx.textAlign = 'center';
                     
-                    // AHOF 1ST PHILIPPINE FANCON (top, smaller)
-                    ctx.fillStyle = '#1a1a1a';
-                    ctx.font = 'bold 20px "Bebas Neue", sans-serif';
-                    ctx.fillText('AHOF 1ST PHILIPPINE FANCON', stripWidth / 2, 40);
                     
                     // RENDEZVOUS (stylized, smaller, orange)
                     ctx.fillStyle = '#f97316';
@@ -788,7 +782,7 @@
                     
                     ctx.fillStyle = '#4c4c4c';
                     ctx.font = '18px "Montserrat", sans-serif';
-                    ctx.fillText('AHOF RENDEZVOUS 2025', stripWidth / 2, footerStartY + 40);
+                    ctx.fillText('AHOF 1ST PHILIPPINE FANCON', stripWidth / 2, footerStartY + 40);
                     
                     ctx.fillStyle = '#6c6c6c';
                     ctx.font = '16px "Montserrat", sans-serif';
