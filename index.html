@@ -288,7 +288,7 @@
                     </div>
                     
                     <!-- AHOF Group Photo -->
-                    <div class="AHOF-group-photo mb-12" style="width: 435px; height:  200px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                    <div class="AHOF-group-photo mb-12" style="width: 415px; height:  200px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
                         <img id="AHOFGroupPhoto" src="./ahof-group.png" alt="AHOF Group" style="width: 100%; height: 100%; object-fit: cover; display: block;">
                    
                     </div>
@@ -419,7 +419,7 @@
                 for (let i = 0; i < photoCount; i++) {
                     const slot = document.createElement('div');
                     slot.className = 'photo-slot mb-4';
-                    slot.style.height = '250px';
+                    slot.style.height = '220px';
                     
                     const placeholderContent = document.createElement('div');
                     placeholderContent.className = 'flex flex-col items-center justify-center';
@@ -587,7 +587,7 @@
                     statusMessage.textContent = "Generating photostrip...";
                     
                     const stripWidth = 450;
-                    const stripHeight = 1200;
+                    const stripHeight = 1220;
                     
                     photoStripCanvas.width = stripWidth;
                     photoStripCanvas.height = stripHeight;
@@ -660,7 +660,7 @@
                     drawMembersArea();
                     
                     // Photo slots - clean layout matching reference
-                    const photoStartY = 330;
+                    const photoStartY = 350;
                     const photoWidth = 390; // Updated width as requested
                     const photoHeight = 220; // Height remains the same
                     const photoSpacing = 35; // Updated spacing as requested
@@ -725,7 +725,7 @@
                     await processPhotos();
                     
                     // Footer section - matching the exact layout
-                    const footerStartY = stripHeight - 100;
+                    const footerStartY = stripHeight - 70;
                     
                     ctx.fillStyle = '#2c2c2c';
                     ctx.font = 'bold 20px "Montserrat", sans-serif';
