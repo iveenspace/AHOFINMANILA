@@ -118,7 +118,7 @@
             gap: 15px;
         }
         
-        .photostrip-container {
+        .-container {
             background: linear-gradient(to bottom, #87CEEB, #87CEEB);
             border-radius: 12px;
             padding: 20px;
@@ -128,7 +128,7 @@
             overflow: hidden;
         }
         
-        .photostrip-footer {
+        .-footer {
             border-top: 1px solid rgba(0,0,0,0.1);
             padding-top: 20px;
             margin-top: 6px;
@@ -151,7 +151,7 @@
         }
         
         .btn {
-            background-image: linear-gradient(135deg, #333, #222);
+            background-image: linear-gradient(135deg, #87CEEB, #87CEEB);
             color: white;
             font-weight: 425;
             padding: 10px 20px;
@@ -162,7 +162,7 @@
         }
         
         .btn:hover:not(:disabled) {
-            background-image: linear-gradient(135deg, #444, #333);
+            background-image: linear-gradient(135deg, #87CEEB, #87CEEB);
             transform: translateY(-2px);
             box-shadow: 0 6px 15px rgba(0,0,0,0.4);
         }
@@ -177,7 +177,7 @@
         }
         
         .btn-primary {
-            background-image: linear-gradient(135deg, #3b82f6, #2563eb);
+            background-image: linear-gradient(135deg, #87CEEB, #87CEEB);
         }
         
         .btn-primary:hover:not(:disabled) {
@@ -623,7 +623,7 @@
                     const drawMembersArea = () => {
                         // Create a subtle overlay background
                         ctx.globalAlpha = 0.1;
-                        ctx.fillStyle = '#ffffff';
+                        ctx.fillStyle = '#87CEEB';
                         ctx.fillRect(0, membersAreaY, stripWidth, membersAreaHeight);
                         ctx.globalAlpha = 1;
                         
